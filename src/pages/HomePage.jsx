@@ -212,7 +212,6 @@ const HomePage = () => {
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-primary/10 backdrop-blur-sm"></div>
       </motion.section>
 
-      {/* Cards Section */}
       <motion.section
         className="py-12 px-4"
         initial="hidden"
@@ -265,7 +264,6 @@ const HomePage = () => {
         </div>
       </motion.section>
 
-      {/* Background Elements with Scroll Effects */}
       <motion.div
         className="fixed top-0 left-0 w-full h-screen pointer-events-none -z-10"
         style={{ opacity }}

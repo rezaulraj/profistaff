@@ -255,7 +255,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
         {isMenuOpen && (
           <div className="fixed inset-0 z-40 md:hidden">
             <div
@@ -283,7 +282,6 @@ const Header = () => {
                   </button>
                 </div>
 
-                {/* Menu Items */}
                 <nav className="flex-1 overflow-y-auto p-4">
                   <ul className="space-y-2">
                     {navigation.map((item, idx) => (

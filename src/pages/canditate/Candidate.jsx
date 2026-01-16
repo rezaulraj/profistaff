@@ -83,15 +83,14 @@ const Candidate = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* heroimage first section */}
       <motion.section
         className="relative text-white bg-cover bg-center min-h-auto py-32 flex items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        style={{ backgroundImage: `url(${heroImage})` }} // fixed
+        style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-black/40"></div> {/* overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeIn}
@@ -235,14 +234,12 @@ const Candidate = () => {
               {t("candidate.from")}
             </motion.h2>
 
-            {/* ✅ Formsubmit.co Integration */}
             <form
               action="https://formsubmit.co/f18c636b84623b378d65cbcb24663d7a"
               method="POST"
               encType="multipart/form-data"
               className="space-y-6"
             >
-              {/* Hidden inputs */}
               <input
                 type="hidden"
                 name="_next"
@@ -250,7 +247,6 @@ const Candidate = () => {
               />
               <input type="hidden" name="_captcha" value="false" />
 
-              {/* Input fields */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="text-gray-600 mb-2 font-medium">
@@ -330,7 +326,6 @@ const Candidate = () => {
                 </div>
               </div>
 
-              {/* File Upload */}
               <div className="border bg-primary p-2 inline-block rounded-md border-primary cursor-pointer">
                 <label className="text-white mb-2 font-medium ">
                   {t("candidate.cv")}
@@ -350,7 +345,6 @@ const Candidate = () => {
                 )}
               </div>
 
-              {/* Consent Checkbox */}
               <div className="flex items-start gap-3">
                 <input
                   type="checkbox"
@@ -363,7 +357,6 @@ const Candidate = () => {
                 </label>
               </div>
 
-              {/* Submit */}
               <motion.button
                 type="submit"
                 className="w-full md:w-auto h-12 px-8 rounded-lg bg-primary hover:bg-primary text-white font-bold uppercase flex items-center justify-center gap-2"

@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import {
   FaFacebookF,
   FaLocationDot,
-  FaTiktok,
   FaTwitter,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -12,7 +11,6 @@ import {
   FaInstagram,
   FaInstagramSquare,
   FaYoutube,
-  FaPhone,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import logo from "/profiicon.png";
@@ -145,7 +143,6 @@ const Footer = () => {
             </motion.div>
           </motion.div>
 
-          {/* Center: Navigation Menu */}
           <motion.div
             variants={itemVariants}
             className="md:border-l md:border-r border-gray-700 md:px-8"
@@ -181,7 +178,6 @@ const Footer = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right: Contact Information */}
           <motion.div variants={itemVariants} className="space-y-6">
             <motion.h3
               variants={itemVariants}
@@ -190,7 +186,6 @@ const Footer = () => {
               Contact Info
             </motion.h3>
 
-            {/* Location */}
             <motion.div
               variants={itemVariants}
               className="flex items-start gap-4 group cursor-pointer"
@@ -211,7 +206,6 @@ const Footer = () => {
               </div>
             </motion.div>
 
-            {/* Email */}
             <motion.div
               variants={itemVariants}
               className="flex items-start gap-4 group cursor-pointer"
@@ -261,7 +255,6 @@ const Footer = () => {
           </motion.div>
         </motion.div>
 
-        {/* Divider */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
@@ -269,14 +262,12 @@ const Footer = () => {
           className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6"
         />
 
-        {/* Bottom Bar - Simplified */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           className="flex flex-col md:flex-row items-center justify-center gap-4 text-center"
         >
-          {/* Copyright centered */}
           <div className="flex items-center justify-center gap-2">
             <img src={logo} alt="Profi Staff" className="w-8 h-8" />
             <p className="text-gray-400 text-sm">
@@ -285,7 +276,6 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Floating CTA Button */}
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

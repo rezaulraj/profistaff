@@ -18,7 +18,6 @@ const Carousel = ({ images }) => {
 
   return (
     <div className="relative w-full">
-      {/* Main Image */}
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-300"
@@ -36,7 +35,6 @@ const Carousel = ({ images }) => {
         </div>
       </div>
 
-      {/* Navigation Controls */}
       <div className="flex justify-center items-center mt-4">
         <button
           onClick={goToPrevious}

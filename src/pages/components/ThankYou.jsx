@@ -12,7 +12,6 @@ const ThankYou = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="bg-white rounded-2xl shadow-xl p-10 max-w-lg text-center"
       >
-        {/* Success Icon */}
         <motion.div
           initial={{ rotate: -45, opacity: 0 }}
           animate={{ rotate: 0, opacity: 1 }}
@@ -22,17 +21,15 @@ const ThankYou = () => {
           <IoIosCheckmarkCircle className="text-green-500 w-20 h-20" />
         </motion.div>
 
-        {/* Heading */}
         <h1 className="text-3xl font-bold text-gray-800 mb-4">Thank You!</h1>
         <p className="text-gray-600 text-lg mb-8">
           Your message has been successfully sent. We’ll get back to you as soon
           as possible.
         </p>
 
-        {/* Button */}
         <Link
           to="/"
-          className="inline-block bg-amber-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-amber-500 transition duration-300"
+          className="inline-block bg-primary text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-primary transition duration-300"
         >
           Back to Home
         </Link>

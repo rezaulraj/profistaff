@@ -66,7 +66,6 @@ const Clients = () => {
 
   return (
     <div className="bg-gray-50">
-      {/* first image show */}
       <motion.section
         className="relative text-white bg-cover bg-center min-h-auto py-32 flex items-center justify-center"
         initial="hidden"

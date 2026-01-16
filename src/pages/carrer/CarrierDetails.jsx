@@ -435,7 +435,6 @@ const CarrierDetails = () => {
                     </button>
                   </div>
 
-                  {/* Social Media Grid */}
                   <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
                     {socialMediaPlatforms.slice(0, 8).map((platform, index) => (
                       <motion.a
@@ -469,7 +468,6 @@ const CarrierDetails = () => {
         </div>
       </motion.div>
 
-      {/* Content Section */}
       <section className="container mx-auto py-12 px-4">
         <motion.div
           className="flex flex-col lg:flex-row gap-8"

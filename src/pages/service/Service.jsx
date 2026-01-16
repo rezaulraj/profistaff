@@ -154,7 +154,7 @@ const Service = () => {
         variants={staggerContainer}
         style={{ backgroundImage: `url(${heroSevice})` }}
       >
-        <div className="absolute inset-0 bg-black/40"></div> {/* overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeIn}
