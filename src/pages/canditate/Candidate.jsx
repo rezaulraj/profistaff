@@ -240,7 +240,7 @@ const Candidate = () => {
             </motion.h2>
 
             <form
-              action="https://formsubmit.co/f18c636b84623b378d65cbcb24663d7a"
+              action="https://formsubmit.co/802acad5cb66ac98a27365d5aa09def8"
               method="POST"
               encType="multipart/form-data"
               className="space-y-6"
@@ -367,7 +367,7 @@ const Candidate = () => {
                 className="w-full md:w-auto h-12 px-8 rounded-lg bg-primary hover:bg-primary text-white font-bold uppercase flex items-center justify-center gap-2 cursor-pointer"
                 variants={fadeIn}
               >
-                {t("candidate.register")}
+                {t("footer.sendBtn")}
                 <BsArrowRight className="text-lg" />
               </motion.button>
             </form>

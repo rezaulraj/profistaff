@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import {
   FaFacebookF,
@@ -20,11 +20,22 @@ const Header = () => {
   const location = useLocation();
   const [selectedLang, setSelectedLang] = useState(i18n.language);
   const [previewLang, setPreviewLang] = useState(null);
+  const [sticky, setSticky] = useState(false);
+  const stickyRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
+      // For top social/translations bar
       setIsScrolled(window.scrollY > 10);
+
+      // For sticky navigation
+      const stickyElement = stickyRef.current;
+      if (stickyElement) {
+        const stickyPosition = stickyElement.offsetTop;
+        setSticky(window.scrollY > stickyPosition);
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -139,212 +150,232 @@ const Header = () => {
   };
 
   return (
-    <header
-      className={`bg-white transition-shadow ${isScrolled ? "shadow-md" : ""}`}
-    >
-      <div className="hidden container mx-auto md:flex items-center justify-between px-4 lg:px-8 xl:px-0 py-2">
-        <div className="flex items-center text-gray-800 border-l border-r border-gray-200">
-          {linkIcon.map((item, index) => (
-            <Link
-              key={index}
-              to={item.link}
-              target="_blank"
-              className={`flex items-center px-3 py-1 hover:translate-y-1 transition-transform duration-500 text-secondary ${
-                index !== 0 ? "border-l border-gray-200" : ""
-              }`}
-            >
-              {item.icon}
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex items-center">
-          {["HR", "EN"].map((lang) => {
-            const langLower = lang.toLowerCase();
-            const isActive = (previewLang || selectedLang) === langLower;
-
-            return (
-              <button
-                key={lang}
-                className={`px-3 py-1 hover:text-secondary cursor-pointer rounded-md mr-2 border hover:translate-y-1 transition-transform duration-500 ${
-                  isActive
-                    ? "border-secondary text-secondary font-bold"
-                    : "border-gray-300 text-gray-800"
+    <header className="sticky top-0 z-50">
+      <div
+        className={`bg-white transition-all duration-300 ${
+          sticky ? "hidden" : "block"
+        } ${isScrolled ? "shadow-md" : ""}`}
+      >
+        <div className="hidden container mx-auto md:flex items-center justify-between px-4 lg:px-8 xl:px-0 py-2">
+          <div className="flex items-center text-gray-800 border-l border-r border-gray-200">
+            {linkIcon.map((item, index) => (
+              <Link
+                key={index}
+                to={item.link}
+                target="_blank"
+                className={`flex items-center px-3 py-1 hover:translate-y-1 transition-transform duration-500 text-secondary ${
+                  index !== 0 ? "border-l border-gray-200" : ""
                 }`}
-                onClick={() => handleLanguageClick(langLower)}
-                onMouseEnter={() => handleMouseEnter(langLower)}
-                onMouseLeave={handleMouseLeave}
               >
-                {lang}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-      <div className="border-b border-gray-200"></div>
-
-      <div className="relative px-4 lg:px-8 xl:px-0 container mx-auto flex items-center justify-between bg-white/90">
-        <Link to="/">
-          <img src={logo} className="w-auto h-20 md:h-24" alt="profi staff" />
-        </Link>
-
-        <div className="hidden md:block">
-          <ul className="flex space-x-4">
-            {navigation.map((item, idx) => (
-              <li key={idx} className="relative group">
-                <Link
-                  to={item.path}
-                  className={`font-semibold text-[13px] transition-colors uppercase tracking-widest font-quicksand ${
-                    location.pathname === item.path
-                      ? "text-secondary border-b-2 border-secondary"
-                      : "text-gray-900 hover:text-secondary"
-                  }`}
-                >
-                  {item.title}
-                </Link>
-              </li>
+                {item.icon}
+              </Link>
             ))}
-          </ul>
-        </div>
+          </div>
 
-        <div className="md:hidden flex items-center space-x-4">
-          <div className="flex">
+          <div className="flex items-center">
+            {["HR", "EN"].map((lang) => {
+              const langLower = lang.toLowerCase();
+              const isActive = (previewLang || selectedLang) === langLower;
+
+              return (
+                <button
+                  key={lang}
+                  className={`px-3 py-1 hover:text-secondary cursor-pointer rounded-md mr-2 border hover:translate-y-1 transition-transform duration-500 ${
+                    isActive
+                      ? "border-secondary text-secondary font-bold"
+                      : "border-gray-300 text-gray-800"
+                  }`}
+                  onClick={() => handleLanguageClick(langLower)}
+                  onMouseEnter={() => handleMouseEnter(langLower)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {lang}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+        <div className="border-b border-gray-200"></div>
+      </div>
+
+      <div
+        ref={stickyRef}
+        className={`bg-[#171D27] shadow-2xl transition-all duration-300 ${
+          sticky
+            ? "fixed top-0 left-0 right-0 z-50 animate-stickySlideDown"
+            : "relative"
+        }`}
+      >
+        <div className="px-4 lg:px-8 xl:px-0 py-2 container mx-auto flex items-center justify-between">
+          <Link to="/" className="flex items-center h-full">
+            <img
+              src={logo}
+              alt="Profi Staff Logo"
+              className="h-16 md:h-20 w-auto object-contain filter brightness-105 contrast-110
+                drop-shadow-lg"
+            />
+          </Link>
+
+          <div className="hidden md:block">
+            <ul className="flex space-x-4">
+              {navigation.map((item, idx) => (
+                <li key={idx} className="relative group">
+                  <Link
+                    to={item.path}
+                    className={`font-semibold text-[13px] transition-colors uppercase tracking-widest font-quicksand ${
+                      location.pathname === item.path
+                        ? "text-secondary border-b-2 border-secondary"
+                        : "text-white hover:text-secondary"
+                    }`}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:hidden flex items-center space-x-4">
+            {sticky && (
+              <div className="flex">
+                <button
+                  className={`px-2 hover:text-secondary font-quicksand cursor-pointer ${
+                    i18n.language === "hr"
+                      ? "text-secondary font-bold"
+                      : "text-white"
+                  }`}
+                  onClick={() => i18n.changeLanguage("hr")}
+                >
+                  HR
+                </button>
+                <button
+                  className={`px-2 hover:text-primary border-l font-quicksand border-gray-400 ${
+                    i18n.language === "en"
+                      ? "text-primary font-bold"
+                      : "text-white"
+                  }`}
+                  onClick={() => i18n.changeLanguage("en")}
+                >
+                  EN
+                </button>
+              </div>
+            )}
             <button
-              className={`px-2 hover:text-secondary font-quicksand cursor-pointer ${
-                i18n.language === "hr"
-                  ? "text-secondary font-bold"
-                  : "text-gray-800"
-              }`}
-              onClick={() => i18n.changeLanguage("hr")}
+              className="text-white hover:text-secondary cursor-pointer"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              HR
-            </button>
-            <button
-              className={`px-2 hover:text-primary border-l font-quicksand border-gray-200 ${
-                i18n.language === "en"
-                  ? "text-primary font-bold"
-                  : "text-gray-800"
-              }`}
-              onClick={() => i18n.changeLanguage("en")}
-            >
-              EN
+              {isMenuOpen ? (
+                <FaTimes className="h-6 w-6 cursor-pointer" />
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8 bg-primary text-white p-1 font-bold cursor-pointer"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              )}
             </button>
           </div>
-          <button
-            className="text-gray-800 hover:text-red-600 cursor-pointer"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <FaTimes className="h-6 w-6 cursor-pointer" />
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-8 h-8 bg-primary text-white p-1 font-bold cursor-pointer"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-            )}
-          </button>
-        </div>
 
-        {isMenuOpen && (
-          <div className="fixed inset-0 z-40 md:hidden">
-            <div
-              className="absolute inset-0 bg-gray-900/30 bg-opacity-75"
-              onClick={() => setIsMenuOpen(false)}
-            ></div>
+          {isMenuOpen && (
+            <div className="fixed inset-0 z-40 md:hidden">
+              <div
+                className="absolute inset-0 bg-gray-900/30 bg-opacity-75"
+                onClick={() => setIsMenuOpen(false)}
+              ></div>
 
-            <div className="absolute right-0 top-0 h-full w-5/5 max-w-full bg-gray-200 shadow-xl transform transition-transform duration-300 ease-in-out">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                  <Link to="/">
-                    <img
-                      src={logo}
-                      width={130}
-                      height={60}
-                      alt="Company Logo "
-                      className="cursor-pointer"
-                    />
-                  </Link>
-                  <button
-                    className="text-gray-800 hover:text-primary cursor-pointer"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <FaTimes className="h-6 w-6" />
-                  </button>
-                </div>
+              <div className="absolute right-0 top-0 h-full w-5/5 max-w-full bg-gray-200 shadow-xl transform transition-transform duration-300 ease-in-out">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                    <Link to="/">
+                      <img
+                        src={logo}
+                        width={130}
+                        height={60}
+                        alt="Company Logo "
+                        className="cursor-pointer"
+                      />
+                    </Link>
+                    <button
+                      className="text-gray-800 hover:text-primary cursor-pointer"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <FaTimes className="h-6 w-6" />
+                    </button>
+                  </div>
 
-                <nav className="flex-1 overflow-y-auto p-4">
-                  <ul className="space-y-2">
-                    {navigation.map((item, idx) => (
-                      <li key={idx} className="border-b border-gray-300">
-                        {item.subNav ? (
-                          <div>
-                            <div
-                              className="flex justify-between items-center px-4 py-2 text-lg font-inter font-medium text-gray-800 hover:bg-gray-300 rounded-lg transition-colors cursor-pointer"
-                              onClick={() => toggleSubMenu(idx)}
-                            >
-                              <span>{item.title}</span>
-                              <svg
-                                className={`w-5 h-5 transition-transform duration-200 ${
-                                  openSubMenu === idx
-                                    ? "transform rotate-180"
-                                    : ""
-                                }`}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
+                  <nav className="flex-1 overflow-y-auto p-4">
+                    <ul className="space-y-2">
+                      {navigation.map((item, idx) => (
+                        <li key={idx} className="border-b border-gray-300">
+                          {item.subNav ? (
+                            <div>
+                              <div
+                                className="flex justify-between items-center px-4 py-2 text-lg font-inter font-medium text-gray-800 hover:bg-gray-300 rounded-lg transition-colors cursor-pointer"
+                                onClick={() => toggleSubMenu(idx)}
                               >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19 9l-7 7-7-7"
-                                />
-                              </svg>
+                                <span>{item.title}</span>
+                                <svg
+                                  className={`w-5 h-5 transition-transform duration-200 ${
+                                    openSubMenu === idx
+                                      ? "transform rotate-180"
+                                      : ""
+                                  }`}
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M19 9l-7 7-7-7"
+                                  />
+                                </svg>
+                              </div>
+                              {openSubMenu === idx && (
+                                <ul className="pl-6 py-2 space-y-2 bg-gray-100 rounded-lg">
+                                  {item.subNav.map((subItem, subIdx) => (
+                                    <li key={subIdx}>
+                                      <Link
+                                        to={`${item.path}/${subItem.path}`}
+                                        className="block px-4 py-2 text-base font-normal text-gray-700 font-quicksand hover:bg-gray-200 rounded-lg transition-colors"
+                                        onClick={() => setIsMenuOpen(false)}
+                                      >
+                                        {subItem.title}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
                             </div>
-                            {openSubMenu === idx && (
-                              <ul className="pl-6 py-2 space-y-2 bg-gray-100 rounded-lg">
-                                {item.subNav.map((subItem, subIdx) => (
-                                  <li key={subIdx}>
-                                    <Link
-                                      to={`${item.path}/${subItem.path}`}
-                                      className="block px-4 py-2 text-base font-normal text-gray-700 font-quicksand hover:bg-gray-200 rounded-lg transition-colors"
-                                      onClick={() => setIsMenuOpen(false)}
-                                    >
-                                      {subItem.title}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        ) : (
-                          <Link
-                            to={item.path}
-                            className="block px-4 py-2 text-lg font-medium text-gray-800 hover:bg-gray-300 font-quicksand rounded-lg transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {item.title}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
+                          ) : (
+                            <Link
+                              to={item.path}
+                              className="block px-4 py-2 text-lg font-medium text-gray-800 hover:bg-gray-300 font-quicksand rounded-lg transition-colors"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              {item.title}
+                            </Link>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </header>
   );

@@ -39,10 +39,10 @@
     "loginbtn": "Prijava"
   },
   "footer": {
-    "heading": "Partenerul tău pentru succes",
-    "headingpara": "Conectăm talente de top cu companii de renume, oferind servicii de recrutare excepționale care stimulează succesul afacerilor și dezvoltarea carierei.",
-    "quicklink": "Linkuri rapide",
-    "contactinfo": "Informații de contact",
+    "heading": "Vaš partner za uspjeh",
+    "headingpara": "Povezujemo vrhunske talente s vodećim tvrtkama, pružajući izvanredne usluge zapošljavanja koje potiču poslovni uspjeh i razvoj karijere.",
+    "quicklink": "Brze poveznice",
+    "contactinfo": "Kontakt informacije",
     "location": "Ilica191c 10000 Zagreb , Hrvatska",
     "tphone": "+385 1 4668 604",
     "mobile": "+385 1 617 1548",
@@ -68,7 +68,7 @@
   "candidate": {
     "cherohead": "Vaš uspeh u karijeri počinje ovde",
     "cherop1": "U Profi Staff pružamo personalizovanu podršku u svakoj fazi vaše potrage za poslom",
-    "cherobtn": "Registruj se sada",
+    "cherobtn": "Prijavi se sada",
 
     "csubhead": "Naše usluge za kandidate",
     "csubp1": "Sveobuhvatna podrška na vašem putu ka zaposlenju",
@@ -101,7 +101,7 @@
     "csptialp1": "Rado prihvatamo proaktivne prijave za oglašene pozicije. Ako trenutno nema otvorenih pozicija koje odgovaraju vašem profilu, dodaćemo vas u našu bazu kandidata bez ikakvih troškova i kontaktirati vas kada se pojave odgovarajuće prilike.",
     "csptialp2": "Naša preliminarna selekcija kandidata osigurava da se sastajete sa poslodavcima samo kada postoji obostrano interesovanje.",
 
-    "from": "Obrazac",
+    "from": "Prijava kandidata iz",
     "inputname": "Vaše ime i prezime",
     "inputphone": "Telefon",
     "inputeamil": "Vaš email",

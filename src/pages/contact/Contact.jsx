@@ -159,7 +159,7 @@ const Contact = () => {
           </motion.div>
 
           <motion.form
-            action="https://formsubmit.co/f18c636b84623b378d65cbcb24663d7a"
+            action="https://formsubmit.co/802acad5cb66ac98a27365d5aa09def8"
             method="POST"
             className="col-span-5 space-y-5 flex flex-col"
             initial={{ x: 50, opacity: 0 }}
@@ -219,7 +219,18 @@ const Contact = () => {
                 />
               </div>
             </motion.div>
-
+            <motion.div
+              className="flex flex-col font-quicksand"
+              variants={fadeIn}
+            >
+              <input
+                required
+                type="text"
+                name="company_name"
+                placeholder="Company Name"
+                className="h-10 px-2 rounded-sm border w-full bg-white text-gray-800 outline-none focus:ring-1 ring-gray-400 transition-all"
+              />
+            </motion.div>
             <motion.div className="flex flex-col" variants={fadeIn}>
               <textarea
                 name="message"
