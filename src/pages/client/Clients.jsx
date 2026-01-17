@@ -10,6 +10,7 @@ import {
 import { HiOutlineBriefcase, HiOutlineOfficeBuilding } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
 import heroImage from "../../assets/employer/heroimage.webp";
+import { Helmet } from "react-helmet";
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -66,12 +67,16 @@ const Clients = () => {
 
   return (
     <div className="bg-gray-50">
+      <Helmet>
+        <title>Hair Employers | Profi Staff</title>
+        <meta property="og:title" content="Hair Employers | Profi Staff" />
+      </Helmet>
       <motion.section
         className="relative text-white bg-cover bg-center min-h-auto py-32 flex items-center justify-center"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        style={{ backgroundImage: `url(${heroImage})` }} 
+        style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">

@@ -6,6 +6,7 @@ import contactImage from "../../assets/contact.jpg";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import heroImage from "../../assets/contact/heroimage.avif";
+import { Helmet } from "react-helmet";
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -30,6 +31,87 @@ const Contact = () => {
 
   return (
     <div className="bg-white/90">
+      <Helmet>
+        <title>Contact Us | Employment Agency & Recruitment Services</title>
+        <meta
+          name="description"
+          content="Get in touch with our recruitment experts. Contact Profi Staff for employment services, staffing solutions, career advice, and business inquiries."
+        />
+        <meta
+          name="keywords"
+          content="contact employment agency, recruitment contact, staffing services, HR consulting, job placement contact, employer inquiries"
+        />
+
+        <meta
+          property="og:title"
+          content="Contact Our Recruitment Experts | Profi Staff"
+        />
+        <meta
+          property="og:description"
+          content="Reach out to our team for employment solutions, staffing services, and career guidance. We're here to help with your recruitment needs."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={heroImage} />
+        <meta property="og:url" content="https://yourdomain.com/contact" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Contact Profi Staff",
+            description: "Contact our recruitment and employment agency",
+            url: "https://yourdomain.com/contact",
+            mainEntity: {
+              "@type": "Organization",
+              name: "Profi Staff d.o.o.",
+              description:
+                "Employment agency specializing in recruitment and staffing solutions",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Unex Tower, 5 Station St",
+                addressLocality: "London",
+                postalCode: "E15 1LA",
+                addressCountry: "UK",
+              },
+              telephone: "+44-XXXX-XXXXXX",
+              email: "info@profistaff.com",
+              openingHours: "Mo-Fr 09:00-17:00",
+              areaServed: ["London", "UK", "International"],
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                availableLanguage: ["English", "Croatian"],
+              },
+            },
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://yourdomain.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Contact Us",
+                item: "https://yourdomain.com/contact",
+              },
+            ],
+          })}
+        </script>
+
+        <link rel="canonical" href="https://yourdomain.com/contact" />
+        <meta name="robots" content="index, follow, noarchive" />
+        <meta name="author" content="Profi Staff" />
+      </Helmet>
+
       <motion.section
         className="relative bg-cover bg-center text-white h-[70vh] flex items-center justify-center"
         initial="hidden"

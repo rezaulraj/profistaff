@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import { BsArrowRight } from "react-icons/bs";
 import heroImage from "../../assets/candidate/heroimage.jpg";
+import { Helmet } from "react-helmet";
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -83,6 +84,10 @@ const Candidate = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      <Helmet>
+        <title>Hair Candidates | Profi Staff</title>
+        <meta property="og:title" content="Hair Candidates | Profi Staff" />
+      </Helmet>
       <motion.section
         className="relative text-white bg-cover bg-center min-h-auto py-32 flex items-center justify-center"
         initial="hidden"
