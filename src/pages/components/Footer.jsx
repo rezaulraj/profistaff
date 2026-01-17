@@ -10,6 +10,7 @@ import {
   FaEnvelope,
   FaInstagram,
   FaInstagramSquare,
+  FaPinterest,
   FaYoutube,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -117,6 +118,10 @@ const Footer = () => {
                   href: "https://www.instagram.com/profi.staff01/",
                 },
                 {
+                  icon: FaPinterest,
+                  href: "https://www.pinterest.com/profistaff01",
+                },
+                {
                   icon: FaYoutube,
                   href: "https://www.youtube.com/@ProfiStaff01",
                 },
@@ -201,7 +206,7 @@ const Footer = () => {
               <div>
                 <h4 className="text-white font-semibold mb-1">Head Office</h4>
                 <p className="text-gray-300 text-sm">
-                  123 Business Street, City Center, New York, NY 10001
+                  5 Station St, London E15 1DA, United Kingdom.
                 </p>
               </div>
             </motion.div>

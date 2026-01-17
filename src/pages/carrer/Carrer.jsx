@@ -100,7 +100,7 @@ const Carrer = () => {
   return (
     <div className="bg-white/90">
       <motion.section
-        className="relative text-white bg-cover bg-center min-h-auto py-32 flex items-center justify-center"
+        className="relative text-white bg-cover bg-center min-h-auto py-32 flex items-center justify-center font-inter"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
@@ -116,7 +116,7 @@ const Carrer = () => {
               {t("careers.cheroh")}
             </h1>
             <motion.p
-              className="text-xl max-w-3xl mx-auto mb-10"
+              className="text-xl max-w-2xl mx-auto mb-10"
               variants={fadeIn}
             >
               {t("careers.cherop")}
@@ -126,7 +126,7 @@ const Carrer = () => {
                 const section = document.querySelector("#tips");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-gray-100 text-gray-950 px-8 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-all transform hover:scale-105 cursor-pointer text-xl"
+              className="bg-gray-100 text-gray-950 px-8 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-all transform hover:scale-105 cursor-pointer text-md"
               variants={fadeIn}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -140,7 +140,7 @@ const Carrer = () => {
 
       <motion.section
         id="tips"
-        className="max-w-screen-xl mx-auto py-6 px-4"
+        className="container mx-auto py-6 px-4 font-inter"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "0px 0px -100px 0px" }}

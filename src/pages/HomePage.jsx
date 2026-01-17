@@ -8,7 +8,6 @@ import img1 from "../assets/img/global-employers-worker.jpeg";
 import img2 from "../assets/img/h3.jpg";
 import img3 from "../assets/img/in-collaboration-with-reputable-agencies.jpg";
 import { MdNavigateNext, MdArrowForward } from "react-icons/md";
-import titleimge from "../assets/home/title_bg.jpg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import logoimg1 from "../assets/img/Icons/i1.png";
@@ -196,9 +195,9 @@ const HomePage = () => {
         animate="visible"
         variants={staggerContainer}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={fadeIn} className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-deep mb-6">
               {t("herotext.headtext")}
             </h1>
             <motion.p
@@ -242,14 +241,14 @@ const HomePage = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     />
-                    <h3 className="text-xl font-bold text-primary font-quicksand text-center">
+                    <h3 className="text-xl font-bold text-deep font-quicksand text-center">
                       {card.heading}
                     </h3>
                     <p className="text-gray-800 mb-4 font-quicksand text-center">
                       {card.subheading}
                     </p>
                     <motion.button
-                      className="flex w-full lg:w-10/12 items-center font-quicksand justify-center text-primary font-semibold text-lg px-6 py-2 rounded-sm transition-colors border border-gray-300 hover:bg-primary hover:text-white shadow-2xl uppercase cursor-pointer"
+                      className="flex w-full lg:w-10/12 items-center font-quicksand justify-center text-deep font-semibold text-lg px-6 py-2 rounded-sm transition-colors border border-gray-300 hover:bg-primary hover:text-white shadow-2xl uppercase cursor-pointer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

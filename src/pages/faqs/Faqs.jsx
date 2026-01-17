@@ -64,7 +64,7 @@ const Faqs = () => {
             variants={fadeIn}
             className="flex flex-col items-center justify-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">
               {t("faqs.faq")}
             </h1>
           </motion.div>
@@ -80,7 +80,7 @@ const Faqs = () => {
       >
         <div className="flex flex-col custom:flex-row gap-8">
           <motion.div
-            className="flex-1 space-y-6 text-gray-800 font-quicksand"
+            className="flex-1 space-y-6 text-gray-800 font-inter"
             variants={staggerContainer}
           >
             {faqItems.map((item, index) => (

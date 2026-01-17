@@ -96,21 +96,21 @@ const Candidate = () => {
             variants={fadeIn}
             className="flex flex-col items-center justify-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-lato">
               {t("candidate.cherohead")}
             </h1>
             <motion.p
-              className="text-xl max-w-3xl mx-auto mb-10"
+              className="text-xl max-w-2xl mx-auto mb-10 font-poppins"
               variants={fadeIn}
             >
-              {t("candidate.cherop1")}
+              {t("candidate.cherop1")}.
             </motion.p>
             <motion.button
               onClick={() => {
                 const section = document.querySelector("#register");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-gray-100 text-gray-950 px-8 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-all transform hover:scale-105 cursor-pointer text-xl"
+              className="bg-gray-100 text-gray-950 px-8 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-all transform hover:scale-105 cursor-pointer text-lg font-inter"
               variants={fadeIn}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -122,7 +122,7 @@ const Candidate = () => {
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-primary/10 backdrop-blur-sm"></div>
       </motion.section>
 
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white font-inter">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -166,7 +166,7 @@ const Candidate = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 font-inter">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:flex items-center gap-12">
             <motion.div
@@ -219,7 +219,7 @@ const Candidate = () => {
         </div>
       </section>
 
-      <section id="register" className="py-16 bg-white">
+      <section id="register" className="py-16 bg-white font-inter">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="bg-gray-50 rounded-xl shadow-lg p-6 md:p-8"
@@ -326,7 +326,7 @@ const Candidate = () => {
                 </div>
               </div>
 
-              <div className="border bg-primary p-2 inline-block rounded-md border-primary cursor-pointer">
+              <div className="border bg-primary p-2 inline-block rounded-md border-primary cursor-pointer ">
                 <label className="text-white mb-2 font-medium ">
                   {t("candidate.cv")}
                 </label>
@@ -359,7 +359,7 @@ const Candidate = () => {
 
               <motion.button
                 type="submit"
-                className="w-full md:w-auto h-12 px-8 rounded-lg bg-primary hover:bg-primary text-white font-bold uppercase flex items-center justify-center gap-2"
+                className="w-full md:w-auto h-12 px-8 rounded-lg bg-primary hover:bg-primary text-white font-bold uppercase flex items-center justify-center gap-2 cursor-pointer"
                 variants={fadeIn}
               >
                 {t("candidate.register")}

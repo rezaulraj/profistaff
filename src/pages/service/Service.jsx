@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import titleimge from "../../assets/home/title_bg.jpg";
+
 import { useTranslation } from "react-i18next";
 import { MdArrowForwardIos } from "react-icons/md";
 import {
@@ -18,8 +17,7 @@ import s7 from "../../assets/img/Service/s7.jpg";
 import s8 from "../../assets/img/Service/s8.jpg";
 import s9 from "../../assets/img/Service/s9.jpg";
 import { Link } from "react-router-dom";
-import { ImMail } from "react-icons/im";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import heroSevice from "../../assets/sevices/heroservice.jpg";
 const Service = () => {
   const { t } = useTranslation();
@@ -160,11 +158,11 @@ const Service = () => {
             variants={fadeIn}
             className="flex flex-col items-center justify-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold font-inter mb-6 text-white text-shadow-lg/30">
               {t("services.sheroh")}
             </h1>
             <motion.p
-              className="text-xl max-w-3xl mx-auto mb-10"
+              className="text-xl max-w-3xl mx-auto mb-10 font-inter"
               variants={fadeIn}
             >
               {t("services.sherop")}
@@ -174,7 +172,7 @@ const Service = () => {
                 const section = document.querySelector("#services");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-gray-50 text-primary hover:text-white px-8 py-3 rounded-lg font-bold hover:bg-primary transition-all transform hover:scale-105 cursor-pointer"
+              className="bg-gray-50 text-black hover:text-white px-8 py-3 rounded-lg font-bold hover:bg-primary transition-all transform hover:scale-105 cursor-pointer font-inter text-lg "
               variants={fadeIn}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

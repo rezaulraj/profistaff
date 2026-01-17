@@ -61,7 +61,7 @@ const AboutUs = () => {
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeIn}
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center font-inter"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               {t("abouts.aheroh1")}
@@ -78,13 +78,13 @@ const AboutUs = () => {
       </motion.section>
 
       <motion.section
-        className="py-16 bg-white"
+        className="py-16 bg-gray-100 font-inter"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
               className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl shadow-sm"
@@ -121,8 +121,8 @@ const AboutUs = () => {
         </div>
       </motion.section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-gray-100 font-inter">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -146,7 +146,7 @@ const AboutUs = () => {
             viewport={{ once: true }}
           >
             <div className="md:flex">
-              <div className="md:w-1/3 bg-primary p-8 text-white flex flex-col justify-center">
+              <div className="md:w-1/3 bg-deep p-8 text-white flex flex-col justify-center">
                 <FaHistory className="text-5xl mb-6 mx-auto" />
                 <h3 className="text-2xl font-bold text-center">
                   {t("abouts.asince")}
@@ -163,8 +163,8 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-white font-inter">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -206,13 +206,13 @@ const AboutUs = () => {
       </section>
 
       <motion.section
-        className="py-16 bg-gradient-to-r from-[#2B99D3] to-[#0C4591] text-white"
+        className="py-16 bg-gradient-to-r from-deep to-primary text-white font-inter mb-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2
             className="text-3xl font-bold mb-6"
             initial={{ y: 20, opacity: 0 }}
@@ -232,7 +232,7 @@ const AboutUs = () => {
             {t("abouts.aaprochp1")}
           </motion.p>
           <motion.div
-            className="bg-white text-blue-800 px-8 inline-block py-4 rounded-lg font-bold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="bg-white text-deep px-8 inline-block py-4 rounded-lg font-bold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6 }}

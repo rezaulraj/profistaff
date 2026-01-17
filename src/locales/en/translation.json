@@ -38,7 +38,10 @@
     "loginbtn": "Login"
   },
   "footer": {
-    "heading": "Our Office",
+    "heading": "Your Success Partner",
+    "headingpara": "We connect top talent with leading companies, providing exceptional recruitment services that drive business success and career growth.",
+    "quicklink": "Quick Links",
+    "contactinfo": "Contact Info",
     "locationname0": "UK",
     "location1": "5 Station St, London E15 1DA, United Kingdom.",
     "locationname1": "New Zealand",
@@ -57,7 +60,7 @@
     "inputmesage": "Message",
     "condition": "I accept",
     "conditiontram": "Terms and conditions of Use",
-    "sendBtn": "Send",
+    "sendBtn": "Send Inquiry",
     "share": "Share",
 
     "develop": "Profi Staff",

@@ -79,17 +79,17 @@ const Clients = () => {
             variants={fadeIn}
             className="flex flex-col items-center justify-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">
               {t("clients.clientheroh")}
             </h1>
             <motion.p
-              className="text-xl max-w-3xl mx-auto mb-10"
+              className="text-xl max-w-3xl mx-auto mb-10 font-inter"
               variants={fadeIn}
             >
               {t("clients.cherop")}
             </motion.p>
             <motion.button
-              className="bg-[#FBB92E] text-gray-950 px-8 py-3 rounded-lg font-bold hover:bg-[#ffb71a] transition-all transform hover:scale-105"
+              className="bg-white text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-all transform hover:scale-105 font-inter text-lg"
               variants={fadeIn}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -102,7 +102,7 @@ const Clients = () => {
       </motion.section>
 
       <motion.section
-        className="py-16 bg-white"
+        className="py-16 bg-white font-inter"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -142,7 +142,7 @@ const Clients = () => {
         </div>
       </motion.section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 font-inter">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -187,7 +187,7 @@ const Clients = () => {
       </section>
 
       <motion.section
-        className="py-16 bg-gradient-to-r from-[#2B99D3] to-[#0C4591] text-white"
+        className="py-16 bg-gradient-to-r from-deep to-primary text-white font-inter mb-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -213,7 +213,7 @@ const Clients = () => {
             {t("clients.chairp")}
           </motion.p>
           <motion.div
-            className="bg-white text-blue-800 inline-block px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="bg-white text-deep inline-block px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6 }}

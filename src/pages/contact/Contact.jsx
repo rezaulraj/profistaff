@@ -40,11 +40,11 @@ const Contact = () => {
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
           <motion.div variants={fadeIn}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-inter">
               {t("contacts.cheroh")}
             </h1>
             <motion.p
-              className="text-xl max-w-3xl mx-auto mb-10"
+              className="text-xl max-w-3xl mx-auto mb-10 font-inter"
               variants={fadeIn}
             >
               {t("contacts.cherop")}
@@ -55,7 +55,7 @@ const Contact = () => {
       </motion.section>
 
       <motion.div
-        className="container mx-auto py-6"
+        className="container mx-auto py-6 font-inter"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -160,7 +160,7 @@ const Contact = () => {
             </motion.div>
 
             <motion.div className="flex flex-col space-y-3" variants={fadeIn}>
-              <div className="flex items-center gap-x-2">
+              {/* <div className="flex items-center gap-x-2">
                 <input
                   type="checkbox"
                   name="terms"
@@ -174,11 +174,11 @@ const Contact = () => {
                     <span className="text-red-500">*</span>
                   </a>
                 </p>
-              </div>
+              </div> */}
               <div>
                 <motion.button
                   type="submit"
-                  className="bg-primary px-5 h-10 text-white flex items-center gap-x-6 font-semibold rounded-sm text-xl hover:bg-primary cursor-pointer uppercase shadow-2xl transition-all duration-200 py-2"
+                  className="bg-primary px-5 h-10 text-white flex items-center gap-x-6 font-semibold rounded-sm text-xl hover:bg-primary cursor-pointer capitalize shadow-2xl transition-all duration-200 py-2"
                   whileHover={{ scale: 0.95 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ duration: 0.2 }}
@@ -193,7 +193,7 @@ const Contact = () => {
       </motion.div>
 
       <motion.div
-        className="max-w-screen-xl mx-auto py-6"
+        className="container mx-auto py-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
