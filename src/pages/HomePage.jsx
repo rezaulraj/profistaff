@@ -14,10 +14,10 @@ import logoimg1 from "../assets/img/Icons/i1.png";
 import logoimg2 from "../assets/img/Icons/i2.png";
 import logoimg3 from "../assets/img/Icons/i3.png";
 import logoimg4 from "../assets/img/Icons/i4.png";
-import { CgLogIn } from "react-icons/cg";
-import Login from "./components/Login";
+
 import { IoIosArrowForward } from "react-icons/io";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const HomePage = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -108,6 +108,57 @@ const HomePage = () => {
   };
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        <title>Employment Agency | Recruitment & Staffing Solutions</title>
+        <meta
+          name="description"
+          content="Find your dream job or hire qualified candidates through our premier employment agency. Expert recruitment, staffing solutions, and career services for job seekers and employers."
+        />
+        <meta
+          name="keywords"
+          content="employment agency, recruitment services, staffing solutions, job placement, hiring agency, career opportunities, talent acquisition"
+        />
+
+        <meta
+          property="og:title"
+          content="Employment Agency | Recruitment & Staffing Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Connect with top employers or find qualified candidates through our professional recruitment services."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={img1} />
+        <meta property="og:url" content="https://yourdomain.com" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EmploymentAgency",
+            name: "Profi Staff",
+            description:
+              "Professional employment agency providing recruitment and staffing solutions",
+            url: "https://yourdomain.com",
+            serviceType: [
+              "Temporary Employment",
+              "Permanent Placement",
+              "Executive Search",
+              "Career Counseling",
+            ],
+            areaServed: {
+              "@type": "Place",
+              name: "european country",
+            },
+          })}
+        </script>
+
+        <link rel="canonical" href="https://yourdomain.com" />
+
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="author" content="Profi Staff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+
       <motion.section
         className="relative"
         initial="hidden"

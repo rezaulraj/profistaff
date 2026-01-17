@@ -85,7 +85,7 @@ const Footer = () => {
               >
                 <h2 className="text-2xl font-bold text-white">Profi Staff</h2>
                 <p className="text-primary font-semibold">
-                  Your Success Partner
+                  {t("footer.heading")}
                 </p>
               </motion.div>
             </motion.div>
@@ -94,9 +94,7 @@ const Footer = () => {
               variants={itemVariants}
               className="text-gray-300 text-sm leading-relaxed"
             >
-              We connect top talent with leading companies, providing
-              exceptional recruitment services that drive business success and
-              career growth.
+              {t("footer.headingpara")}
             </motion.p>
 
             <motion.div
@@ -156,7 +154,7 @@ const Footer = () => {
               variants={itemVariants}
               className="text-xl font-bold text-white mb-6 text-center md:text-left"
             >
-              Quick Links
+              {t("footer.quicklink")}
             </motion.h3>
             <motion.div
               variants={containerVariants}
@@ -188,7 +186,7 @@ const Footer = () => {
               variants={itemVariants}
               className="text-xl font-bold text-white mb-6"
             >
-              Contact Info
+              {t("footer.contactinfo")}
             </motion.h3>
 
             <motion.div

@@ -8,9 +8,9 @@ import c4 from "../../assets/img/Career Tips/cover-letters-are-history.jpg";
 import { Link } from "react-router-dom";
 
 import { MdArrowForwardIos } from "react-icons/md";
-import Login from "../components/Login";
 import { motion } from "framer-motion";
 import heroImage from "../../assets/career/heroimage.jpg";
+import { Helmet } from "react-helmet";
 const Carrer = () => {
   const { t } = useTranslation();
 
@@ -99,6 +99,126 @@ const Carrer = () => {
 
   return (
     <div className="bg-white/90">
+      <Helmet>
+        <title>Career Tips & Advice</title>
+        <meta
+          name="description"
+          content="Expert career advice including professional CV writing, interview preparation, education support, and job search strategies to help you succeed in today's competitive market."
+        />
+        <meta
+          name="keywords"
+          content="career tips, CV writing, resume help, interview preparation, job search advice, career advice, professional development, employment tips"
+        />
+
+        <meta
+          property="og:title"
+          content="Career Success Tips & Professional Development Advice"
+        />
+        <meta
+          property="og:description"
+          content="Essential career guidance including CV optimization, interview techniques, and professional development strategies for job seekers."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={heroImage} />
+        <meta property="og:url" content="https://yourdomain.com/career-tips" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Career Tips & Advice",
+            description:
+              "Comprehensive career guidance including CV writing, interview preparation, and job search strategies",
+            publisher: {
+              "@type": "EmploymentAgency",
+              name: "Profi Staff",
+              description:
+                "Professional recruitment and career counseling services",
+            },
+            mainEntity: {
+              "@type": "ItemList",
+              itemListElement: careerdata.map((item, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                item: {
+                  "@type": "Article",
+                  headline: item.cardh1,
+                  description: item.chardp1.substring(0, 160),
+                  url: `https://yourdomain.com/career-advice/${encodeURIComponent(
+                    item.link.toLowerCase().replace(/\s+/g, "-")
+                  )}`,
+                  image: item.img,
+                  datePublished: "2024-01-01",
+                  dateModified: "2024-01-01",
+                  author: {
+                    "@type": "Organization",
+                    name: "Profi Staff Career Experts",
+                  },
+                },
+              })),
+            },
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How can I improve my CV for better job opportunities?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Focus on professional formatting, highlight relevant skills, keep it concise (1-2 pages), and tailor it for each job application. Include quantifiable achievements and proofread carefully.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What are the most important interview preparation tips?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Research the company, practice common questions, prepare questions to ask, dress professionally, and plan your journey to arrive early.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How can I stay competitive in today's job market?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Continuously update your skills through training, stay informed about industry trends, network professionally, and maintain an active online presence.",
+                },
+              },
+            ],
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://yourdomain.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Career Tips",
+                item: "https://yourdomain.com/career-tips",
+              },
+            ],
+          })}
+        </script>
+
+        <link rel="canonical" href="https://yourdomain.com/career-tips" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Profi Staff Career Experts" />
+      </Helmet>
+
       <motion.section
         className="relative text-white bg-cover bg-center min-h-auto py-32 flex items-center justify-center font-inter"
         initial="hidden"
@@ -222,7 +342,6 @@ const Carrer = () => {
           </motion.div>
         </div>
       </motion.section>
-      {/* <Login /> */}
     </div>
   );
 };

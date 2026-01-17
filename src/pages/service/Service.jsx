@@ -1,4 +1,3 @@
-
 import { useTranslation } from "react-i18next";
 import { MdArrowForwardIos } from "react-icons/md";
 import {
@@ -19,10 +18,10 @@ import s9 from "../../assets/img/Service/s9.jpg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import heroSevice from "../../assets/sevices/heroservice.jpg";
+import { Helmet } from "react-helmet";
 const Service = () => {
   const { t } = useTranslation();
 
-  // Animation variants
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -145,6 +144,81 @@ const Service = () => {
 
   return (
     <div className="bg-white/90">
+      <Helmet>
+        <title>
+          Professional Recruitment & Staffing Services | Profi Staff
+        </title>
+        <meta
+          name="description"
+          content="Complete employment services including recruitment, temporary staffing, visa processing, tax refunds, and workforce outsourcing solutions for businesses and job seekers."
+        />
+        <meta
+          name="keywords"
+          content="recruitment services, temporary staffing, employment agency, visa processing, work permits, tax refund services, workforce outsourcing, labor market research, HR services"
+        />
+
+        <meta
+          property="og:title"
+          content="Comprehensive Recruitment & Employment Services"
+        />
+        <meta
+          property="og:description"
+          content="From temporary staffing to visa processing and tax refunds - complete employment solutions for businesses and job seekers."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={heroSevice} />
+        <meta property="og:url" content="https://yourdomain.com/services" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Comprehensive Recruitment Services",
+            provider: {
+              "@type": "EmploymentAgency",
+              name: "Profi Staff",
+              description:
+                "Professional employment agency providing recruitment and staffing solutions",
+            },
+            serviceType: [
+              "Recruitment assistance",
+              "Temporary Employment Services",
+              "Workforce Outsourcing Solutions",
+              "Visa and Work Permit Processing",
+              "Tax Refund Service",
+              "Education and Training",
+              "Administrative Services",
+              "Labor Market Research",
+            ],
+            description:
+              "Tailored workforce solutions including recruitment, temporary staffing, visa processing, tax refunds, and comprehensive HR services.",
+            areaServed: {
+              "@type": "Country",
+              name: "Croatia",
+            },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Employment Services",
+              itemListElement: serverdata.map((service, index) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: service.cardh1,
+                  description: service.chardp1.substring(0, 200) + "...",
+                  url: `https://yourdomain.com/services/${encodeURIComponent(
+                    service.link.toLowerCase().replace(/\s+/g, "-")
+                  )}`,
+                },
+              })),
+            },
+          })}
+        </script>
+
+        <link rel="canonical" href="https://yourdomain.com/services" />
+
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Profi Staff" />
+      </Helmet>
       <motion.section
         className="relative text-white bg-cover bg-center h-auto py-32 flex items-center justify-center"
         initial="hidden"

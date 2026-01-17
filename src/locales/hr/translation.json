@@ -39,8 +39,10 @@
     "loginbtn": "Prijava"
   },
   "footer": {
-    "heading": "Naš ured",
-    "subHeading": "Profi Staff za posredovanje pri zapošljavanju i privremeno zapošljavanje | Profi Staff poslovno savjetovanje d.o.o. za usluge",
+    "heading": "Partenerul tău pentru succes",
+    "headingpara": "Conectăm talente de top cu companii de renume, oferind servicii de recrutare excepționale care stimulează succesul afacerilor și dezvoltarea carierei.",
+    "quicklink": "Linkuri rapide",
+    "contactinfo": "Informații de contact",
     "location": "Ilica191c 10000 Zagreb , Hrvatska",
     "tphone": "+385 1 4668 604",
     "mobile": "+385 1 617 1548",

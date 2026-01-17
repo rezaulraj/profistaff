@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import heroImage from "../../assets/about/heroimage.webp";
+import { Helmet } from "react-helmet";
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -50,6 +51,127 @@ const AboutUs = () => {
 
   return (
     <div className="bg-gray-50">
+      <Helmet>
+        <title>
+          About Us - Leading Employment Agency Since 2010 | Profi Staff
+        </title>
+        <meta
+          name="description"
+          content="Profi Staff is a trusted recruitment agency with over a decade of experience. Learn about our mission, values, and commitment to connecting employers with top talent since 2010."
+        />
+        <meta
+          name="keywords"
+          content="about Profi Staff, employment agency history, recruitment company, staffing agency Croatia, hiring experts, employment services since 2010"
+        />
+
+        <meta
+          property="og:title"
+          content="About Profi Staff - Trusted Recruitment Experts Since 2010"
+        />
+        <meta
+          property="og:description"
+          content="Discover our story, mission, and values as a leading employment agency connecting businesses with qualified talent across multiple industries."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={heroImage} />
+        <meta property="og:url" content="https://yourdomain.com/about" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            name: "About Profi Staff",
+            description:
+              "Leading employment agency specializing in recruitment and staffing solutions since 2010",
+            publisher: {
+              "@type": "EmploymentAgency",
+              name: "Profi Staff d.o.o.",
+              description: t("abouts.basicdata.bdh1"),
+              foundingDate: "2010",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Prilaz Gjure Deželića 71",
+                addressLocality: "Zagreb",
+                postalCode: "10000",
+                addressCountry: "HR",
+              },
+            },
+            mainEntity: {
+              "@type": "Organization",
+              name: "Profi Staff",
+              description: t("abouts.aherop1"),
+              foundingDate: "2010",
+              mission: t("abouts.mtext"),
+              vision: t("abouts.vtext"),
+              employee: {
+                "@type": "Profi Staff",
+                name: "Profi Staff",
+              },
+              areaServed: ["Croatia", "International"],
+              numberOfEmployees: "50-100",
+            },
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://yourdomain.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "About Us",
+                item: "https://yourdomain.com/about",
+              },
+            ],
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "When was Profi Staff founded?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Profi Staff was founded in 2010 and has been providing professional recruitment services for over a decade.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What is Profi Staff's mission?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: t("abouts.mtext"),
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What are Profi Staff's core values?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Integrity, Excellence, and Collaboration guide all our recruitment practices and client relationships.",
+                },
+              },
+            ],
+          })}
+        </script>
+
+        <link rel="canonical" href="https://yourdomain.com/about" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Profi Staff" />
+      </Helmet>
+
       <motion.section
         className="relative text-white bg-cover bg-center min-h-auto py-32 flex items-center justify-center"
         initial="hidden"
