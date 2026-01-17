@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  FaFacebookF,
-  FaLocationDot,
-  FaTwitter,
-} from "react-icons/fa6";
+import { FaFacebookF, FaLocationDot, FaTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import {
   FaEnvelope,
@@ -204,7 +200,7 @@ const Footer = () => {
               <div>
                 <h4 className="text-white font-semibold mb-1">Head Office</h4>
                 <p className="text-gray-300 text-sm">
-                  5 Station St, London E15 1DA, United Kingdom.
+                  8 Khalid Bin Al Waleed Street, Sharq, Kuwait City, Kuwait
                 </p>
               </div>
             </motion.div>
@@ -224,10 +220,10 @@ const Footer = () => {
               <div>
                 <h4 className="text-white font-semibold mb-1">Email Address</h4>
                 <a
-                  href="mailto:ceo@profistaff.online"
+                  href="mailto:info@profistaff.top"
                   className="text-gray-300 hover:text-white text-sm transition-colors duration-300"
                 >
-                  ceo@profistaff.online
+                  info@profistaff.top
                 </a>
               </div>
             </motion.div>

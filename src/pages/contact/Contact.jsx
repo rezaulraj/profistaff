@@ -319,7 +319,7 @@ const Contact = () => {
             <div className="relative h-[350px] w-full overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 z-10"></div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.5363866145653!2d-0.0013758999999999998!3d51.54006269999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761d619425c5f9%3A0x211fc273a1979577!2sUnex%20Tower%2C%205%20Station%20St%2C%20London%20E15%201LA%2C%20UK!5e0!3m2!1sen!2sbd!4v1748716128963!5m2!1sen!2sbd"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49559.226136191646!2d47.961229095499824!3d29.376967871061435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf84960c63cb61%3A0xe8f13236510cf0e1!2s8%20Khalid%20Ibn%20Al%20Waleed%20St%2C%20Al%20Kuwayt%2C%20Kuwait!5e0!3m2!1sen!2sbd!4v1768636403766!5m2!1sen!2sbd"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -340,7 +340,7 @@ const Contact = () => {
                       {t("footer.location1")}
                     </p>
                     <a
-                      href="https://www.google.com/maps/dir/?api=1&destination=Unex+Tower,+5+Station+St,+London+E15+1LA,+UK"
+                      href="https://www.google.com/maps/dir/?api=1&destination=8+Khalid+Ibn+Al+Waleed+St,+Al+Kuwayt,+Kuwait"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-secondary text-white font-semibold rounded-md hover:bg-secondary transition-colors duration-200"

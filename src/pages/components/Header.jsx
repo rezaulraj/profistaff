@@ -22,13 +22,11 @@ const Header = () => {
   const [previewLang, setPreviewLang] = useState(null);
   const [sticky, setSticky] = useState(false);
   const stickyRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      // For top social/translations bar
       setIsScrolled(window.scrollY > 10);
-
-      // For sticky navigation
       const stickyElement = stickyRef.current;
       if (stickyElement) {
         const stickyPosition = stickyElement.offsetTop;
@@ -39,6 +37,26 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const detectCountry = async () => {
@@ -109,7 +127,6 @@ const Header = () => {
     },
     { title: t("menu.candidates"), path: "/jobs-for-candidates" },
     { title: t("menu.clients"), path: "/hiring-for-employers" },
-
     { title: t("menu.career"), path: "/career-tips" },
     { title: t("menu.about"), path: "/about-us" },
     { title: t("menu.faq"), path: "/faqs" },
@@ -263,6 +280,7 @@ const Header = () => {
             <button
               className="text-white hover:text-secondary cursor-pointer"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
                 <FaTimes className="h-6 w-6 cursor-pointer" />
@@ -284,97 +302,156 @@ const Header = () => {
               )}
             </button>
           </div>
+        </div>
 
-          {isMenuOpen && (
-            <div className="fixed inset-0 z-40 md:hidden">
-              <div
-                className="absolute inset-0 bg-gray-900/30 bg-opacity-75"
-                onClick={() => setIsMenuOpen(false)}
-              ></div>
+        <div
+          ref={menuRef}
+          className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <div
+            className={`absolute inset-0 bg-gray-900 transition-opacity duration-300 ${
+              isMenuOpen ? "opacity-75" : "opacity-0"
+            }`}
+            onClick={() => setIsMenuOpen(false)}
+          />
 
-              <div className="absolute right-0 top-0 h-full w-5/5 max-w-full bg-gray-200 shadow-xl transform transition-transform duration-300 ease-in-out">
-                <div className="flex flex-col h-full">
-                  <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                    <Link to="/">
-                      <img
-                        src={logo}
-                        width={130}
-                        height={60}
-                        alt="Company Logo "
-                        className="cursor-pointer"
-                      />
-                    </Link>
-                    <button
-                      className="text-gray-800 hover:text-primary cursor-pointer"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <FaTimes className="h-6 w-6" />
-                    </button>
-                  </div>
+          <div
+            className={`absolute right-0 top-0 h-full w-80 max-w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+              isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
+            <div className="flex flex-col h-full">
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+                <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                  <img
+                    src={logo}
+                    width={130}
+                    height={60}
+                    alt="Company Logo"
+                    className="cursor-pointer"
+                  />
+                </Link>
+                <button
+                  className="text-gray-800 hover:text-primary cursor-pointer p-2"
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <FaTimes className="h-6 w-6" />
+                </button>
+              </div>
 
-                  <nav className="flex-1 overflow-y-auto p-4">
-                    <ul className="space-y-2">
-                      {navigation.map((item, idx) => (
-                        <li key={idx} className="border-b border-gray-300">
-                          {item.subNav ? (
-                            <div>
-                              <div
-                                className="flex justify-between items-center px-4 py-2 text-lg font-inter font-medium text-gray-800 hover:bg-gray-300 rounded-lg transition-colors cursor-pointer"
-                                onClick={() => toggleSubMenu(idx)}
-                              >
-                                <span>{item.title}</span>
-                                <svg
-                                  className={`w-5 h-5 transition-transform duration-200 ${
-                                    openSubMenu === idx
-                                      ? "transform rotate-180"
-                                      : ""
-                                  }`}
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M19 9l-7 7-7-7"
-                                  />
-                                </svg>
-                              </div>
-                              {openSubMenu === idx && (
-                                <ul className="pl-6 py-2 space-y-2 bg-gray-100 rounded-lg">
-                                  {item.subNav.map((subItem, subIdx) => (
-                                    <li key={subIdx}>
-                                      <Link
-                                        to={`${item.path}/${subItem.path}`}
-                                        className="block px-4 py-2 text-base font-normal text-gray-700 font-quicksand hover:bg-gray-200 rounded-lg transition-colors"
-                                        onClick={() => setIsMenuOpen(false)}
-                                      >
-                                        {subItem.title}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              )}
-                            </div>
-                          ) : (
-                            <Link
-                              to={item.path}
-                              className="block px-4 py-2 text-lg font-medium text-gray-800 hover:bg-gray-300 font-quicksand rounded-lg transition-colors"
-                              onClick={() => setIsMenuOpen(false)}
-                            >
-                              {item.title}
-                            </Link>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
+              <div className="flex justify-center p-4 border-b border-gray-200 bg-gray-50">
+                <div className="flex space-x-4">
+                  <button
+                    className={`px-4 py-2 rounded-md font-quicksand font-medium transition-colors ${
+                      i18n.language === "hr"
+                        ? "bg-secondary text-white"
+                        : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                    }`}
+                    onClick={() => {
+                      i18n.changeLanguage("hr");
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    HR
+                  </button>
+                  <button
+                    className={`px-4 py-2 rounded-md font-quicksand font-medium transition-colors ${
+                      i18n.language === "en"
+                        ? "bg-primary text-white"
+                        : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                    }`}
+                    onClick={() => {
+                      i18n.changeLanguage("en");
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    EN
+                  </button>
                 </div>
               </div>
+
+              <nav className="flex-1 overflow-y-auto p-4">
+                <ul className="space-y-1">
+                  {navigation.map((item, idx) => (
+                    <li key={idx} className="mb-1">
+                      {item.subNav ? (
+                        <div className="border-b border-gray-200 pb-1">
+                          <div
+                            className="flex justify-between items-center px-4 py-3 text-lg font-inter font-medium text-gray-800 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                            onClick={() => toggleSubMenu(idx)}
+                          >
+                            <span>{item.title}</span>
+                            <svg
+                              className={`w-5 h-5 transition-transform duration-200 ${
+                                openSubMenu === idx
+                                  ? "transform rotate-180"
+                                  : ""
+                              }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </div>
+                          {openSubMenu === idx && (
+                            <ul className="pl-6 mt-2 space-y-1 bg-gray-50 rounded-lg">
+                              {item.subNav.map((subItem, subIdx) => (
+                                <li key={subIdx}>
+                                  <Link
+                                    to={`${item.path}/${subItem.path}`}
+                                    className="block px-4 py-3 text-base font-normal text-gray-700 font-quicksand hover:bg-gray-100 rounded-lg transition-colors"
+                                    onClick={() => setIsMenuOpen(false)}
+                                  >
+                                    {subItem.title}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      ) : (
+                        <Link
+                          to={item.path}
+                          className="block px-4 py-3 text-lg font-medium text-gray-800 hover:bg-gray-100 font-quicksand rounded-lg transition-colors border-b border-gray-200"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.title}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  <div className="flex justify-center space-x-4">
+                    {linkIcon.map((item, index) => (
+                      <Link
+                        key={index}
+                        to={item.link}
+                        target="_blank"
+                        className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-700 hover:bg-secondary hover:text-white transition-colors duration-300"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <span className="text-lg">{item.icon}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </nav>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </header>
