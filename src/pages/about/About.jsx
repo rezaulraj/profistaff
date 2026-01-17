@@ -74,7 +74,7 @@ const AboutUs = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={heroImage} />
-        <meta property="og:url" content="https://yourdomain.com/about" />
+        <meta property="og:url" content="https://profistaff.top/about-us" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -122,13 +122,13 @@ const AboutUs = () => {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://yourdomain.com",
+                item: "https://profistaff.top",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "About Us",
-                item: "https://yourdomain.com/about",
+                item: "https://profistaff.top/about-us",
               },
             ],
           })}

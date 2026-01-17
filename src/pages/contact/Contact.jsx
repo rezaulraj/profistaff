@@ -52,7 +52,7 @@ const Contact = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={heroImage} />
-        <meta property="og:url" content="https://yourdomain.com/contact" />
+        <meta property="og:url" content="https://profistaff.top/contact" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -60,7 +60,7 @@ const Contact = () => {
             "@type": "ContactPage",
             name: "Contact Profi Staff",
             description: "Contact our recruitment and employment agency",
-            url: "https://yourdomain.com/contact",
+            url: "https://profistaff.top/contact",
             mainEntity: {
               "@type": "Organization",
               name: "Profi Staff d.o.o.",
@@ -68,15 +68,16 @@ const Contact = () => {
                 "Employment agency specializing in recruitment and staffing solutions",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Unex Tower, 5 Station St",
+                streetAddress:
+                  "8 Khalid Bin Al Waleed Street, Sharq, Kuwait City",
                 addressLocality: "London",
                 postalCode: "E15 1LA",
-                addressCountry: "UK",
+                addressCountry: "Kuwait",
               },
               telephone: "+44-XXXX-XXXXXX",
-              email: "info@profistaff.com",
+              email: "info@profistaff.top",
               openingHours: "Mo-Fr 09:00-17:00",
-              areaServed: ["London", "UK", "International"],
+              areaServed: ["Croatia", "Kuwait", "International"],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer service",
@@ -95,19 +96,19 @@ const Contact = () => {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://yourdomain.com",
+                item: "https://profistaff.top/",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Contact Us",
-                item: "https://yourdomain.com/contact",
+                item: "https://profistaff.top/contact",
               },
             ],
           })}
         </script>
 
-        <link rel="canonical" href="https://yourdomain.com/contact" />
+        <link rel="canonical" href="https://profistaff.top/contact" />
         <meta name="robots" content="index, follow, noarchive" />
         <meta name="author" content="Profi Staff" />
       </Helmet>
@@ -170,7 +171,7 @@ const Contact = () => {
             <input
               type="hidden"
               name="_next"
-              value="https://80twenty.online/thank-you"
+              value="https://profistaff.top/thank-you"
             />
             <input type="hidden" name="_captcha" value="false" />
             <input

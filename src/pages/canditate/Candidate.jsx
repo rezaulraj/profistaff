@@ -248,7 +248,7 @@ const Candidate = () => {
               <input
                 type="hidden"
                 name="_next"
-                value="https://80twenty.online/thank-you"
+                value="https://profistaff.top/thank-you"
               />
               <input type="hidden" name="_captcha" value="false" />
 

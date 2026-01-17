@@ -129,7 +129,7 @@ const HomePage = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={img1} />
-        <meta property="og:url" content="https://yourdomain.com" />
+        <meta property="og:url" content="https://profistaff.top/" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -138,7 +138,7 @@ const HomePage = () => {
             name: "Profi Staff",
             description:
               "Professional employment agency providing recruitment and staffing solutions",
-            url: "https://yourdomain.com",
+            url: "https://profistaff.top/",
             serviceType: [
               "Temporary Employment",
               "Permanent Placement",
@@ -152,7 +152,7 @@ const HomePage = () => {
           })}
         </script>
 
-        <link rel="canonical" href="https://yourdomain.com" />
+        <link rel="canonical" href="https://profistaff.top/" />
 
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta name="author" content="Profi Staff" />

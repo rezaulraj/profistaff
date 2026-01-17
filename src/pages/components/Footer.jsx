@@ -283,7 +283,7 @@ const Footer = () => {
         >
           <Link to="/contact">
             <motion.button
-              className="bg-gradient-to-r from-deep to-primary text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 font-semibold"
+              className="bg-gradient-to-r from-deep to-primary text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 font-semibold cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

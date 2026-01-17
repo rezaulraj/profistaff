@@ -120,7 +120,7 @@ const Carrer = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={heroImage} />
-        <meta property="og:url" content="https://yourdomain.com/career-tips" />
+        <meta property="og:url" content="https://profistaff.top/career-tips" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -202,19 +202,19 @@ const Carrer = () => {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://yourdomain.com",
+                item: "https://profistaff.top/",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Career Tips",
-                item: "https://yourdomain.com/career-tips",
+                item: "https://profistaff.top/career-tips",
               },
             ],
           })}
         </script>
 
-        <link rel="canonical" href="https://yourdomain.com/career-tips" />
+        <link rel="canonical" href="https://profistaff.top/career-tips" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Profi Staff Career Experts" />
       </Helmet>

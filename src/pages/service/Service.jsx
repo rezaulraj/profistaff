@@ -167,7 +167,7 @@ const Service = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={heroSevice} />
-        <meta property="og:url" content="https://yourdomain.com/services" />
+        <meta property="og:url" content="https://profistaff.top/services" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -205,7 +205,7 @@ const Service = () => {
                   "@type": "Service",
                   name: service.cardh1,
                   description: service.chardp1.substring(0, 200) + "...",
-                  url: `https://yourdomain.com/services/${encodeURIComponent(
+                  url: `https://profistaff.top/services/${encodeURIComponent(
                     service.link.toLowerCase().replace(/\s+/g, "-")
                   )}`,
                 },
@@ -214,7 +214,7 @@ const Service = () => {
           })}
         </script>
 
-        <link rel="canonical" href="https://yourdomain.com/services" />
+        <link rel="canonical" href="https://profistaff.top/services" />
 
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Profi Staff" />
